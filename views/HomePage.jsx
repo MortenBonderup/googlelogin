@@ -1,6 +1,7 @@
 import { signInWithPopup } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { auth, provider } from "../src/firebase-config";
+import Logout from "../src/components/Logout";
 
 export default function HomePage() {
     const navigate = useNavigate();
@@ -22,6 +23,7 @@ export default function HomePage() {
         <section className="page">
             <h1>Home Page</h1>
             <p><button type="button" onClick={signInWithGoogle}>Login med Google</button></p>
+            <p><Logout/></p>
         </section>
     );
 }
