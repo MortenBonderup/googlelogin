@@ -1,8 +1,9 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { onAuthStateChanged, signOut } from "firebase/auth";
+import { onAuthStateChanged } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore";
 import { auth, db } from "../src/firebase-config";
+import Logout from "../src/components/Logout";
 
 export default function AdminPage() {
     const navigate = useNavigate();
@@ -31,22 +32,11 @@ export default function AdminPage() {
     }, [navigate]);
 
 
-    async function logout() {
-        signOut(auth).then(() => {
-            // Sign-out successful.
-            navigate("/googlelogin/"); // Redirect to default page
-        }).catch((error) => {
-            // An error happened.
-            alert("Error signing out: ", error);
-        });
-    }
-
-
     return (
         <div style={{ marginTop: "150px" }}>
             <h1>Admin Page</h1>
             {/* Admin content goes here */}
-            <p><button type="button" onClick={logout}>Logout</button></p>
+            <Logout/>
 
         </div>
     );
