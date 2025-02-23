@@ -23,5 +23,3 @@ dist-ssr
 *.sln
 *.sw?
 
-#firebase configuration file
-firebase-config.js
